@@ -1,0 +1,12 @@
+.Coin{
+    width: 240px;
+    height: 240px;
+    border-radius: 240px;
+    margin: 0px auto;
+    background-color: transparent;
+}
+
+.Coin img{
+    width: 100%;
+    height: 100%;
+}

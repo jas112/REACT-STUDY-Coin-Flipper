@@ -1,0 +1,20 @@
+.CoinFlipper{
+    max-width: 600px;
+    border-radius: 20px;
+    box-shadow: 4px 0px 20px #00000050;
+    margin: 20px auto;
+    padding: 20px 10px 30px 10px;
+}
+
+.CoinFlipper-coin-holder{
+    width: 250px;
+    height: 250px;
+    border-radius: 250px;
+    box-shadow: 4px 0px 20px #00000050;
+    margin: 20px auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    /* overflow: hidden; */
+}
