@@ -26,18 +26,30 @@ export class CoinFlipper extends Component {
 
         let coinFace = choice(this.props.coinFaces);
 
-        this.setState(currState =>{
-            let newState = {
-                ...currState,
-                currFace: coinFace,
-                flipCount: currState.flipCount + 1
-            }
+        // this.setState(currState =>{
+        //     let newState = {
+        //         ...currState,
+        //         currFace: coinFace,
+        //         flipCount: currState.flipCount + 1
+        //     }
 
-            if (coinFace.cFace == 'heads') {
-                newState.headCount += 1;
-            }else{
-                newState.tailCount += 1;
-            }
+        //     if (coinFace.cFace == 'heads') {
+        //         newState.headCount += 1;
+        //     }else{
+        //         newState.tailCount += 1;
+        //     }
+
+        //     return newState;
+
+        // });
+
+        this.setState(currState => {
+
+            let newState = {...currState};
+            newState.currFace = coinFace;
+            newState.flipCount += 1;
+            newState.headCount += (coinFace.cFace === 'heads' ? 1 : 0);
+            newState.tailCount += (coinFace.cFace === 'tails' ? 1 : 0);
 
             return newState;
 
@@ -54,7 +66,10 @@ export class CoinFlipper extends Component {
     return (
         <div className='CoinFlipper'>
             <h1>Coin Flipper</h1>
-            {this.state.currFace ? this.state.currFace.cFace : ''}
+            {/* {this.state.currFace ? this.state.currFace.cFace : ''} */}
+            <div className="CoinFlipper-coin-holder">
+                {this.state.currFace && <Coin info={this.state.currFace} />}
+            </div>
             <button onClick={this.handleClick}>Flip the Coin</button>
             <p>Out of {this.state.flipCount} flips, there have been {this.state.headCount} heads and {this.state.tailCount} tails.</p>
         </div>
